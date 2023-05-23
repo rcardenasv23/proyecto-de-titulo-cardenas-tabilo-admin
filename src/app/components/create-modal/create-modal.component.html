@@ -1,0 +1,25 @@
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="createForm" (ngSubmit)="update()" novalidate class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createModalLabel">{{title}}</h1>
+        <button (click)="createForm.reset()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label>{{label}}</label>
+          <input
+            formControlName="text"
+            type="text"
+            class="form-control"
+            [placeholder]="placeholder"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="createForm.reset()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button [disabled]="createForm.invalid" type="submit" class="btn btn-success">Crear</button>
+      </div>
+    </form>
+  </div>
+</div>

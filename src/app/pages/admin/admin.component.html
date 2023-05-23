@@ -1,0 +1,45 @@
+<div class="container-fluid p-0 m-0">
+  <div class="row p-0 m-0" style="background-color: var(--subaster-main); height: 10vh">
+    <div class="col-12 d-flex justify-content-between p-0 m-0" style="height: 100%">
+      <div class="d-flex justify-content-start align-items-center p-0 m-0">
+        <img src="assets/Subaster.png" alt="logo" style="height: 100%;width: auto; border-radius: 1000px; margin-inline: 1vw">
+        <h1 class="d-none d-sm-block fw-bold text-light p-0 m-0" style="font-size: 2vw">Subaster Administrador</h1>
+      </div>
+      <button (click)="logOut()" class="p-0 log-out"><span>Sign-Out</span></button>
+    </div>
+  </div>
+  <div class="row p-0 m-0" style="height: 200vh" >
+      <div class="col-12 p-0 col-sidebar" style="height: 100%">
+      <div class="d-none d-md-flex flex-column" >
+        <a [routerLink]="['']" class="sidebar-option isActive" [class.isActive]="activated === 0">Categorias</a>
+        <a [routerLink]="[{outlets: {'settings': 'unit'}}]" class="sidebar-option isActive" [class.isActive]="activated === 1">Unidades</a>
+        <a [routerLink]="[{outlets: {'settings': 'product-state'}}]" class="sidebar-option isActive" [class.isActive]="activated === 2">Estados</a>
+        <a [routerLink]="[{outlets: {'settings': 'publications'}}]" class="sidebar-option isActive" [class.isActive]="activated === 3">Publicaciones</a>
+      </div>
+      <div class="offcanvas offcanvas-start sidebar" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <a [routerLink]="['']" class="sidebar-option isActive" [class.isActive]="activated === 0">Categorias</a>
+        <a [routerLink]="[{outlets: {'settings': 'unit'}}]" class="sidebar-option isActive" [class.isActive]="activated === 1">Unidades</a>
+        <a [routerLink]="[{outlets: {'settings': 'product-state'}}]" class="sidebar-option isActive" [class.isActive]="activated === 2">Estados</a>
+        <a [routerLink]="[{outlets: {'settings': 'publications'}}]" class="sidebar-option isActive" [class.isActive]="activated === 3">Publicaciones</a>
+        <button type="button" class="btn p-0 m-0 bg-transparent border-0 close-side" data-bs-dismiss="offcanvas">
+          <span class="material-symbols-outlined text-success p-0 m-0" style="font-size: 4vw">
+            keyboard_double_arrow_left
+            </span>
+        </button>
+      </div>
+      <div class="d-flex d-md-none p-0 m-0">
+        <div class="w-100 h-100 bg-success"></div>
+        <button class="position-relative btn btn-primary p-0 m-0 bg-transparent border-0 " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+          <span class="material-symbols-outlined text-success p-0 m-0" style="font-size: 4vw">
+            double_arrow
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="col-12 m-0 pb-0 container-router">
+      <router-outlet class="position-relative" name="settings" style="max-width: 100%"></router-outlet>
+    </div>
+  </div>
+</div>
+
+

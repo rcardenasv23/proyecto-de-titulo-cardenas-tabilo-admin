@@ -1,0 +1,25 @@
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="updateForm" (ngSubmit)="update()" novalidate class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="updateModalLabel">{{title}}</h1>
+        <button (click)="updateForm.reset()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label>{{label}}</label>
+          <input
+            formControlName="updated"
+            type="text"
+            class="form-control"
+            [placeholder]="initialValue"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button (click)="updateForm.reset()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button [disabled]="updateForm.invalid" type="submit" class="btn btn-success">Actualizar</button>
+      </div>
+    </form>
+  </div>
+</div>

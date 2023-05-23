@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-flex justify-content-between align-items-start">
+      <h1 class="fw-bold p-0 m-0" style="font-size: 24px">Estados del producto</h1>
+      <button class="btn btn-success border border-success py-0" data-bs-toggle="modal" data-bs-target="#createModal">Añadir</button>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <app-create-modal
+          title="Crear Estado de Producto"
+          label="Ingresa el nuevo estado"
+          placeholder="Escriba el nuevo estado de producto..."
+          (callCreate)="createTarget($event)"
+        ></app-create-modal>
+        <app-update-modal
+          title="Actualizar Categoría"
+          label="Ingresa el nuevo nombre de la categoría"
+          (callUpdate)="updateTarget($event)"
+          [idTarget]="targetProductState?.id_pubs"
+          [initialValue]="targetProductState?.product_state"
+        ></app-update-modal>
+        <div style="margin-top: 4vh">
+          <div *ngFor="let productState of states" class="col-12 mb-2 p-0 m-0 border-b border-success">
+            <div class="row">
+              <div class="col-12 d-flex justify-content-between w-100 py-4" style="border-bottom: 1px solid green">
+                <p class="d-flex flex-grow-1">{{productState.product_state}}</p>
+                <button (click)="targetProductState=productState" class="btn border border-success py-0" data-bs-toggle="modal" data-bs-target="#updateModal">
+                  Editar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
